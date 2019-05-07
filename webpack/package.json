@@ -1,0 +1,34 @@
+{
+  "name": "vuepack",
+  "version": "0.0.0",
+  "description": "SellSelf Tienda Virtual",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack:watch": "webpack -w"
+  },
+  "author": "Gerald Alarcon",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "css-loader": "^1.0.0",
+    "jspdf": "^1.5.3",
+    "jspdf-autotable": "^3.1.1",
+    "style-loader": "^0.23.1",
+    "sweetalert2": "^8.8.5",
+    "vue": "^2.5.17",
+    "vue-html-loader": "^1.2.4",
+    "vue-loader": "^15.4.2",
+    "vue-loader-options-plugin": "^0.1.1",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.17",
+    "webpack-cli": "^3.1.2",
+    "wow.js": "^1.2.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "webpack": "^4.20.2"
+  }
+}

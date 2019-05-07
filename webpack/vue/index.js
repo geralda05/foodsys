@@ -6,6 +6,7 @@ Vue.use(VueRouter);
 import index from './views/index.vue'
 import inicio from './views/templates/inicio/inicio.vue'
 
+
 const router = new VueRouter({
     mode:'history',
     routes:[

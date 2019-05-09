@@ -23,10 +23,11 @@ var connections=[];
     }
 
 setConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "foodsys"
+    host: "remotemysql.com",
+    user: "6iirhjKzhW",
+    password: "69r7UAWkRe",
+    database: "6iirhjKzhW",
+    port: "3306"
 });
 
 module.exports = connections;

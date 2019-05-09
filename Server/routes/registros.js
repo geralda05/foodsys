@@ -25,7 +25,7 @@ collector.get('/LeerOrdenes/:PedidoID?',function(req,res){
           (req.params.PedidoID ? req.params.PedidoID:null),
       ]
       var SQL = (req.params.PedidoID ? "SELECT * FROM ordenes WHERE PedidoID=? ":"SELECT * FROM ordenes");
-      connections.foodsys.query(SQL,Request,function(error,rows){
+      connections.zATbKKw5W0.query(SQL,Request,function(error,rows){
           if(error){
               Response.status=false;
               Response.message=String(error);
@@ -52,7 +52,7 @@ collector.get('/LeerProductos/:InvID?',function(req,res){
           (req.params.InvID ? req.params.InvID:null),
       ]
       var SQL = (req.params.InvID ? "SELECT * FROM inventario WHERE InvID=? ":"SELECT * FROM inventario");
-      connections.foodsys.query(SQL,Request,function(error,rows){
+      connections.zATbKKw5W0.query(SQL,Request,function(error,rows){
           if(error){
               Response.status=false;
               Response.message=String(error);
@@ -84,7 +84,7 @@ collector.post('/AgregarProducto',function(req,res){
           req.body.InvStatus
       ]
       var SQL = "INSERT INTO inventario (InvProducto,InvCantidad,InvDescripcion,InvStatus) VALUES (?,?,?,?)";
-      connections.foodsys.query(SQL,Request,function(error,rows){
+      connections.zATbKKw5W0.query(SQL,Request,function(error,rows){
           if(error){
               Response.status=false;
               Response.message=String(error);
@@ -124,7 +124,7 @@ collector.post('/AgregarOrden',function(req,res){
           req.body.PedidoClienteEmail
       ]
       var SQL = "INSERT INTO ordenes (PedidoClienteNombre,PedidoClienteIDCard,PedidoCantidad,PedidoProducto,PedidoDireccion,PedidoClienteTelefono,PedidoClienteEmail) VALUES (?,?,?,?,?,?,?)";
-      connections.foodsys.query(SQL,Request,function(error,rows){
+      connections.zATbKKw5W0.query(SQL,Request,function(error,rows){
           if(error){
               Response.status=false;
               Response.message=String(error);
@@ -161,7 +161,7 @@ collector.post('/modificar/:InvID',function(req,res){
           req.body.InvCantidad
       ]
       var SQL = "UPDATE inventario SET InvProducto=? , InvDescripcion=?, InvStatus=?, InvCantidad=? WHERE InvID='"+req.params.InvID+"'";
-      connections.foodsys.query(SQL,Request,function(error,rows){
+      connections.zATbKKw5W0.query(SQL,Request,function(error,rows){
           if(error){
               Response.status=false;
               Response.message=String(error);
@@ -190,7 +190,7 @@ collector.get('/eliminarProductos/:InvID',function(req,res){
   }
   try{
       var SQL = "DELETE FROM inventario WHERE InvID='"+req.params.InvID+"'";
-      connections.foodsys.query(SQL,function(error,rows){
+      connections.zATbKKw5W0.query(SQL,function(error,rows){
           if(error){
               Response.status=false;
               Response.message=String(error);

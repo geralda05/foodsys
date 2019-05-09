@@ -24,9 +24,9 @@ var connections=[];
 
 setConnection({
     host: "remotemysql.com",
-    user: "6iirhjKzhW",
-    password: "69r7UAWkRe",
-    database: "6iirhjKzhW",
+    user: "zATbKKw5W0",
+    password: "XBnGBTSvCp",
+    database: "zATbKKw5W0",
     port: "3306"
 });
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-05-2019 a las 07:58:09
+-- Tiempo de generación: 09-05-2019 a las 12:06:15
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -32,8 +32,20 @@ CREATE TABLE `inventario` (
   `InvID` int(11) NOT NULL,
   `InvProducto` varchar(600) COLLATE utf8_spanish_ci NOT NULL,
   `InvCantidad` varchar(600) COLLATE utf8_spanish_ci NOT NULL,
-  `InvStatus` varchar(600) COLLATE utf8_spanish_ci NOT NULL
+  `InvStatus` varchar(600) COLLATE utf8_spanish_ci NOT NULL,
+  `InvDescripcion` varchar(600) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `inventario`
+--
+
+INSERT INTO `inventario` (`InvID`, `InvProducto`, `InvCantidad`, `InvStatus`, `InvDescripcion`) VALUES
+(2, 'Sweater Sportime', '1', 'HABILITADO', 'Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela '),
+(3, 'Pantalon Sweet Playera', '0', 'INHABILITADO', 'Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela '),
+(4, 'Blusa estampada', '6', 'HABILITADO', 'Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela'),
+(5, 'Zapatillas Adidas XL', '5', 'HABILITADO', 'Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela'),
+(6, 'Este es el que debe aparecer', '6', 'HABILITADO', 'Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela Franela de cuello verdoso diseñada para un estilo ideal loren ipsum datos de la franela');
 
 -- --------------------------------------------------------
 
@@ -46,11 +58,18 @@ CREATE TABLE `ordenes` (
   `PedidoClienteNombre` varchar(600) COLLATE utf8_spanish_ci NOT NULL,
   `PedidoClienteIDCard` varchar(600) COLLATE utf8_spanish_ci NOT NULL,
   `PedidoCantidad` varchar(600) COLLATE utf8_spanish_ci NOT NULL,
-  `PedidoProducto` varchar(600) COLLATE utf8_spanish_ci NOT NULL,
+  `PedidoProducto` int(255) NOT NULL,
   `PedidoDireccion` varchar(600) COLLATE utf8_spanish_ci NOT NULL,
   `PedidoClienteTelefono` varchar(600) COLLATE utf8_spanish_ci NOT NULL,
   `PedidoClienteEmail` varchar(600) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `ordenes`
+--
+
+INSERT INTO `ordenes` (`PedidoID`, `PedidoClienteNombre`, `PedidoClienteIDCard`, `PedidoCantidad`, `PedidoProducto`, `PedidoDireccion`, `PedidoClienteTelefono`, `PedidoClienteEmail`) VALUES
+(7, 'Anna Viera Quintana', 'V-9837616', '2', 6, 'Valencia edo Carabobo Venezuela', '+584121717805', 'gerald@gmail.com');
 
 --
 -- Índices para tablas volcadas
@@ -66,7 +85,8 @@ ALTER TABLE `inventario`
 -- Indices de la tabla `ordenes`
 --
 ALTER TABLE `ordenes`
-  ADD PRIMARY KEY (`PedidoID`);
+  ADD PRIMARY KEY (`PedidoID`),
+  ADD KEY `ordenes_ibfk_1` (`PedidoProducto`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -76,13 +96,23 @@ ALTER TABLE `ordenes`
 -- AUTO_INCREMENT de la tabla `inventario`
 --
 ALTER TABLE `inventario`
-  MODIFY `InvID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `InvID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `ordenes`
 --
 ALTER TABLE `ordenes`
-  MODIFY `PedidoID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PedidoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `ordenes`
+--
+ALTER TABLE `ordenes`
+  ADD CONSTRAINT `ordenes_ibfk_1` FOREIGN KEY (`PedidoProducto`) REFERENCES `inventario` (`InvID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

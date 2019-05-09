@@ -27,6 +27,9 @@
     background-position:center;
     background-repeat:repeat;
 }
+.overflow-hidden-cont{
+    overflow:hidden;
+}
 </style>
 <template>
     <body class="p-0">
